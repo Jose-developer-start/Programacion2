@@ -7,11 +7,7 @@
             $conexion = $modelo->get_conexion();
             $stm = $conexion->prepare($query);
             $stm->execute();
-
-            while ($result = $stm->fetch()){
-                $rows[] = $result;
-            }
-            return $rows;
+            return $stm;
         }
         public function consultasUpdateInsertDelete($query){
             $modelo = new ConexionDB();

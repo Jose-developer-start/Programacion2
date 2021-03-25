@@ -12,4 +12,7 @@
 
     $cont = 0;
     $pagina = 0;
+    $queryCate = "SELECT * FROM categorias ORDER BY id_categorias";
+
+    $DataCategorias = SelectData($queryCate,"i");
 ?>

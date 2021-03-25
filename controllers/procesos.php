@@ -142,10 +142,20 @@
     }
     //Funcion para consutar datos de cualquier tabla
     //Optimizar
-    function SelectData($query){
+    function SelectData($query,$opcion){
+        $rows = null;
         $consultas = new CRUD();
         $data = $consultas->select($query);
-        return $data;
+        if($opcion == "i"){
+            while ($result = $data->fetch()){
+                $rows[] = $result;
+            }
+            return $rows;
+        }else{
+            return $data;
+        }
+        
+        
     }
     function UpdateInsertDeleteData($query){
         $objetConsulta = new CRUD();
