@@ -15,4 +15,8 @@
     $queryCate = "SELECT * FROM categorias ORDER BY id_categorias";
 
     $DataCategorias = SelectData($queryCate,"i");
+    
+    foreach($DataCategorias AS $result){
+        echo "Categoria: ".$result['categoria']."<br>";
+    }
 ?>
