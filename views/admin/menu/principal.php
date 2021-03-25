@@ -22,7 +22,7 @@
         <div class="card-body">
         <div class="row" style="text-align: center;">
                 <div class="col">
-                    <a href="" class="btn btn-secondary inventario"> 
+                    <a href="" class="btn btn-secondary procesos-v"> 
                         <i class="fas fa-tools fa-3x"></i><br>
                         Panel Control
                     </a>
