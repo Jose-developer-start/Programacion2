@@ -2,6 +2,7 @@
 	session_start();
 	session_destroy();
 ?>
+<!--Despues de la practica y asignar la tarea--->
 <!DOCTYPE html>
 <html lang="es">
 	<head>
