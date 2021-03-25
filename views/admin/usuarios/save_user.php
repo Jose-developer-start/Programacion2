@@ -5,14 +5,20 @@
     include '../../../models/procesos.php';
 	include '../../../controllers/procesos.php';
 
+    $user = $_GET['user'];
+    $clave = password_hash($_GET['clave'], PASSWORD_DEFAULT);
+    $email = $_GET['email'];
+    $tipo = $_GET['tipo'];
 
+    $tabla = "usuarios";
+    $campo = "usuario,email,passw,tipo";
+    $valores = "'$user','$email','$clave','$tipo'";
+    $query = "INSERT INTO $tabla ($campo) VALUES($valores)";
     
-    $query = "";
-
-    //$insert = InsertData($query)
+    $insert = UpdateInsertDeleteData($query);
 ?>
-<?php //if ($insert == 1):?>
-<!-- script>
+<?php if ($insert == 1):?>
+<script>
     $(document).ready(function() 
     {
         alertify.alert("Registro Usuario","Usuario registrado");
@@ -20,7 +26,7 @@
         event.preventDefault();
     });
 </script>
-<?php //else: ?>    
+<?php else: ?>    
     <script>
     $(document).ready(function() 
     {
@@ -29,4 +35,4 @@
         event.preventDefault();
     });
 </script>
-<?php //endif ?>
+<?php endif ?>

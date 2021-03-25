@@ -23,8 +23,8 @@
         <div class="row" style="text-align: center;">
                 <div class="col">
                     <a href="" class="btn btn-secondary inventario"> 
-                        <i class="fas fa-boxes fa-3x"></i><br>
-                        Inventario
+                        <i class="fas fa-tools fa-3x"></i><br>
+                        Panel Control
                     </a>
                 </div>
                 <div class="col">

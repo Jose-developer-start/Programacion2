@@ -2,7 +2,6 @@
     function AccesoLogin($user,$passw){
         $consultas = new Login();
         $data = $consultas->getDataUser($user);
-
         if($data)
         {
             foreach($data as $result){
@@ -142,16 +141,16 @@
         }
     }
     //Funcion para consutar datos de cualquier tabla
+    //Optimizar
     function SelectData($query){
         $consultas = new CRUD();
         $data = $consultas->select($query);
         return $data;
     }
-    function UpdateData($query){
-
-    }
-    function InsertData(){
-
+    function UpdateInsertDeleteData($query){
+        $objetConsulta = new CRUD();
+        $data = $objetConsulta->consultasUpdateInsertDelete($query);
+        return $data;
     }
 
 ?>

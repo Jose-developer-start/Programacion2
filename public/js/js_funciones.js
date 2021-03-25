@@ -57,11 +57,27 @@ $(document).ready(function()
 			event.preventDefault();
 		}
 	});
+	/*Actualizar: Tipo y Email Usuario*/
+	$("#upd2-user").click(function(event){
+		var iduser,email,tipo;
+		iduser = $("#id-user").val();
+		email = $("#email").val();
+		tipo = $("#tipo-user option:selected").val();
 
+		if(email == ""){
+			alert("El campo email esta vacio");
+			event.preventDefault();
+		}else if(tipo == 0 || tipo == ""){
+			alert("El tipo de usuario no fue selecionado");
+			event.preventDefault();
+		}else{
+			$("#contenido-usuario").load("usuarios/update_user.php?id_user=" + iduser + "&tipo=" + tipo + "&email="+email);
+		}
+	})
 	/*Eliminar Usuario*/
 	$("a.del-user").click(function(event) 
 	{
-		if(confirm('Eliminar Usuario',"Seguro/a de eliminar Usuario?")){
+		if(confirm("Seguro/a de eliminar Usuario?")){
 			var iduser = $(this).attr("id-user");
 			$("#contenido-usuario").load("usuarios/form_update_user.php?accion=2&id_user="+iduser);
 			event.preventDefault();
@@ -120,6 +136,15 @@ $(document).ready(function()
 		iduser = $(this).attr("id-user");
 		estado = $(this).attr("estado");
 		$("#contenido-usuario").load("usuarios/form_update_user.php?accion=3&id_user="+iduser+"&estado="+estado);
+        event.preventDefault();
+	});
+	//Cambiar el tipo
+	$("a.edit-tipo").click(function(event) 
+	{
+		var iduser,estado; 
+		iduser = $(this).attr("id-user");
+		tipo = $(this).attr("tipo");
+		$("#contenido-usuario").load("usuarios/form_update_user.php?accion=4&id_user="+iduser+"&tipo="+tipo);
         event.preventDefault();
 	});
 });

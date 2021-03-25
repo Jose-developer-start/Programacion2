@@ -63,7 +63,7 @@
 								    		<i class="fas fa-user"></i>
 								    	</span>
 								  	</div>
-								  	<input type="text" name="user" class="form-control" placeholder="Usuario" autocomplete="off" required>
+								  	<input autofocus="true" type="text" name="user" class="form-control" placeholder="Usuario" autocomplete="off" required>
 								</div>
 								<div class="input-group mb-3">
 								 	<div class="input-group-prepend">

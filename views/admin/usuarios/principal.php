@@ -11,8 +11,17 @@
 <script>
     function muestra_oculta(id)
     {
+        if(document.getElementById){
+            var el = document.getElementById(id);
+            el.style.display = (el.style.display == 'block') ? 'none' : 'block';
+        }
         
+       
     }
+    window.onload = function(){
+        muestra_oculta('contenido-icon')
+    };
+
 </script>
 <style>
     th{text-align: center;background-color: #212121;color:#ff7043;font-weight: bold;}
@@ -24,12 +33,12 @@
         <div class="col-sm-12 col-md-12">
             <a class="btn btn-success text-white new_user" style="margin-bottom: 10px;"><i class="fas fa-user-plus"></i> Agregar</a>
             <div style="margin-top: 10px;margin-bottom: 10px;">
-                <a style='cursor: pointer;' onClick="muestra_oculta('contenido')" title="" class="btn btn-info text-white boton_mostrar">
+                <a style='cursor: pointer;' onClick="muestra_oculta('contenido-icon')" title="" class="btn btn-info text-white boton_mostrar">
                     <i class="fas fa-info-circle"></i>  Información Iconos
                 </a>
 
-                <div id="contenido" style="display: none;">
-                    <?php //include 'tabla_icon.php';?>
+                <div id="contenido-icon" style="display: none;">
+                    <?php include 'tabla_icon.php';?>
                 </div>
             </div>
             <table class="table table-hover table-responsive-xl">
@@ -51,22 +60,22 @@
                         <td><?php echo $result['email']; ?></td>
                         <td>
                         <?php if ($result['estado'] == 0): ?>
-                            <a class="btn btn-danger text-white edit-estado"  id-user="<?php echo $result['id_usuario']; ?>" estado="<?php //echo $result['estado']; ?>">
+                            <a class="btn btn-danger text-white edit-estado"  id-user="<?php echo $result['id_usuario']; ?>" estado="<?php echo $result['estado']; ?>">
                                 <i class="fas fa-user-slash"></i>
                             </a>
                         <?php else: ?>
-                            <a class="btn btn-secondary text-white edit-estado" id-user="<?php echo $result['id_usuario']; ?>" estado="<?php //echo $result['estado']; ?>">
+                            <a class="btn btn-secondary text-white edit-estado" id-user="<?php echo $result['id_usuario']; ?>" estado="<?php echo $result['estado']; ?>">
                             <i class="fas fa-user-check"></i>
                             </a>
                         <?php endif ?>
                         </td>
                         <td>
                         <?php if ($result['tipo'] == 1): ?>
-                            <a class="btn btn-primary text-white" estado="<?php echo $result['tipo']; ?>">
+                            <a class="btn btn-primary text-white edit-tipo" id-user="<?php echo $result['id_usuario']; ?>" tipo="<?php echo $result['tipo']; ?>">
                             <i class="fas fa-user-shield"></i>
                             </a>
                         <?php else: ?>
-                            <a class="btn btn-warning text-white" estado="<?php echo $result['tipo']; ?>">
+                            <a class="btn btn-warning text-white edit-tipo" id-user="<?php echo $result['id_usuario']; ?>" tipo="<?php echo $result['tipo']; ?>">
                             <i class="fas fa-user-cog"></i>
                             </a>
                         <?php endif ?>

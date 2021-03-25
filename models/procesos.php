@@ -1,4 +1,5 @@
 <?php
+//Convertir en una sola funcion
     class CRUD{
         public function select($query){
             $rows = null;
@@ -12,12 +13,18 @@
             }
             return $rows;
         }
-        public function update ($query){
-
+        public function consultasUpdateInsertDelete($query){
+            $modelo = new ConexionDB();
+            $conexion = $modelo->get_conexion();
+            $stm = $conexion->prepare($query);
+            if(!$stm){
+                return 0;
+            }else{
+                $stm->execute();
+                return 1;
+            }
         }
-        public function insert($query){
-
-        }
+        
     }
 
 
