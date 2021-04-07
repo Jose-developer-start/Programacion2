@@ -163,4 +163,10 @@
         return $data;
     }
 
+    function NumReg($query){
+        $consultas = new CRUD();
+        $data = $consultas->row_registro($query);
+        return $data;
+    }
+
 ?>
