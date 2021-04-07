@@ -31,17 +31,16 @@ if (!$pagina) {
     $inicio = ($pagina - 1) * $registros;
 }
 $query = "SELECT * FROM categorias";
-$num_registros = NumReg($query);
-$pagina = ceil($num_registros / $registros);
+$num_registro = NumReg($query);
 
 $queryCate = "SELECT * FROM categorias ORDER BY id_categorias LIMIT $inicio, $registros";
 
 $DataCategorias = SelectData($queryCate, "i");
-
+$paginas = ceil($num_registro / $registros);
 ?>
 <?php if ($DataCategorias) : ?>
     <?php include "tabla_categorias.php"; ?>
-    <?php if ($num_registros > $registros) : ?>
+    <?php if ($num_registro > $registros) : ?>
         <?php if ($pagina == 1) : ?>
             <div style="text-align: center;">
                 <a class="btn  pagina" href="" v-num="<?php echo ($pagina + 1); ?>" num-reg="<?php echo $registros; ?>"> <i class="fas fa-arrow-alt-circle-right fa-2x"></i></a>

@@ -5,6 +5,3 @@ $(document).ready(function(){
         event.preventDefault();
     });
 });
-//Categoria
-//id_categoria INT(5) auto_ not null
-//categoria Varchar(50)
