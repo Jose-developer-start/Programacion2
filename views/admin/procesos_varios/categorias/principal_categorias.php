@@ -5,36 +5,60 @@
 
 
 <?php
-    session_start();
-    include_once "../../../../models/conexion.php";
-    include_once "../../../../models/procesos.php";
-    include_once "../../../../controllers/procesos.php";
+session_start();
+include_once "../../../../models/conexion.php";
+include_once "../../../../models/procesos.php";
+include_once "../../../../controllers/procesos.php";
 
-    $cont = 0;
-    $pagina = 0;
+$cont = 0;
+$pagina = 0;
 
-    if(isset($_GET['num'])){
-        $pagina = $_GET['num'];
-    }
-    //Definir el numero de registro
-    if(isset($_GET['n_reg']) || isset($_GET['num'])){
-        $registro = $_GET['n_reg'];
-    }else{
-        $registro = 3;
-    }
+if (isset($_GET['num'])) {
+    $pagina = $_GET['num'];
+}
+//Definir el numero de registross
+if (isset($_GET['n_reg']) || isset($_GET['num'])) {
+    $registros = $_GET['n_reg'];
+} else {
+    $registros = 3;
+}
 
-    //Definir el inicio a la pagina a mostrar
-    if(!$pagina){
-        $inicio = 0;
-        $pagina = 1;
-    }else{
-        $inicio = ($pagina - 1) * $registro;
-    }
-    $query = "SELECT * FROM categorias";
-    $queryCate = "SELECT * FROM categorias ORDER BY id_categorias LIMIT $inicio, $registro";
+//Definir el inicio a la pagina a mostrar
+if (!$pagina) {
+    $inicio = 0;
+    $pagina = 1;
+} else {
+    $inicio = ($pagina - 1) * $registros;
+}
+$query = "SELECT * FROM categorias";
+$num_registros = NumReg($query);
+$pagina = ceil($num_registros / $registros);
 
-    $DataCategorias = SelectData($queryCate,"i");
+$queryCate = "SELECT * FROM categorias ORDER BY id_categorias LIMIT $inicio, $registros";
 
-    include "tabla_categorias.php";
+$DataCategorias = SelectData($queryCate, "i");
 
 ?>
+<?php if ($DataCategorias) : ?>
+    <?php include "tabla_categorias.php"; ?>
+    <?php if ($num_registros > $registros) : ?>
+        <?php if ($pagina == 1) : ?>
+            <div style="text-align: center;">
+                <a class="btn  pagina" href="" v-num="<?php echo ($pagina + 1); ?>" num-reg="<?php echo $registros; ?>"> <i class="fas fa-arrow-alt-circle-right fa-2x"></i></a>
+            </div>
+        <?php elseif ($pagina == $paginas) : ?>
+            <div style="text-align: center;">
+                <a class="btn  pagina" href="" v-num="<?php echo ($pagina - 1); ?>" num-reg="<?php echo $registros; ?>"> <i class="fas fa-arrow-alt-circle-left fa-2x"></i> </a>
+            </div>
+        <?php else : ?>
+            <div style="text-align: center;">
+                <a class="btn  pagina" href="" v-num="<?php echo ($pagina - 1); ?>" num-reg="<?php echo $registros; ?>"> <i class="fas fa-arrow-alt-circle-left fa-2x"></i> </a> &nbsp;
+                <a class="btn  pagina" href="" v-num="<?php echo ($pagina + 1); ?>" num-reg="<?php echo $registros; ?>"> <i class="fas fa-arrow-alt-circle-right fa-2x"></i></a>
+            </div>
+        <?php endif ?>
+    <?php endif ?>
+<?php else : ?>
+    <div class="alert alert-danger">
+        No se encuentran datos
+    </div>
+<?php endif ?>
