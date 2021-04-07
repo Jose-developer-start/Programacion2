@@ -1,4 +1,5 @@
 <script src="../../public/js/js_funciones.js"></script>
+<script src="../../public/js/funciones-usuario.js"></script>
 <?php 
     session_start();
     include '../../../models/conexion.php';

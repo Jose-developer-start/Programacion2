@@ -8,6 +8,7 @@
     $cont = 0;
 ?>
 <script src="../../public/js/js_funciones.js"></script>
+<script src="../../public/js/funciones-usuario.js"></script>
 <script>
     function muestra_oculta(id)
     {

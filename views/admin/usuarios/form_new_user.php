@@ -1,4 +1,5 @@
 <script src="../../public/js/js_funciones.js"></script>
+<script src="../../public/js/funciones-usuario.js"></script>
 <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-6">

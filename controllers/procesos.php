@@ -142,7 +142,7 @@
     }
     //Funcion para consutar datos de cualquier tabla
     //Optimizar
-    function SelectData($query,$opcion){
+    function SelectData($query,$opcion=""){
         $rows = null;
         $consultas = new CRUD();
         $data = $consultas->select($query);
