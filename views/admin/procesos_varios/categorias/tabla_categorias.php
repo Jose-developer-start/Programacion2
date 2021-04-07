@@ -1,4 +1,10 @@
-<table class="table table-bordered table-resposive table-sm" >
+<style>
+    td{
+        text-align: center;
+        vertical-align: middle;
+    }
+</style>
+<table class="table table-bordered table-resposive-md table-sm" >
 
     <thead>
         <tr>
@@ -23,6 +29,7 @@
             </a>
             </td>
         </tr>
+        <?php endforeach ?>
     </tbody>
-    <?php endforeach ?>
+    
 </table>
