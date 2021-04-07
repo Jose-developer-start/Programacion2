@@ -17,8 +17,8 @@ if (isset($_GET['num'])) {
     $pagina = $_GET['num'];
 }
 //Definir el numero de registross
-if (isset($_GET['n_reg']) || isset($_GET['num'])) {
-    $registros = $_GET['n_reg'];
+if (isset($_GET['num_reg']) || isset($_GET['num'])) {
+    $registros = $_GET['num_reg'];
 } else {
     $registros = 3;
 }
