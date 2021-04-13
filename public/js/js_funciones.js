@@ -1,15 +1,9 @@
-//Funciones
-$(document).ready(function(){
-    $("a.inventario").click(function(event){
-        $("#capa").load("inventario/principal.php");
-        event.preventDefault();
-    })
-    $("a.usuario").click(function(event){
-        $("#capa").load("usuarios/principal.php");
-        event.preventDefault();
-    })
-    $("a.ventas").click(function(event){
-        $("#capa").load("ventas/principal.php");
-        event.preventDefault();
-    })
-})
+function myFunction(){
+	var x = document.getElementById("myDIV");
+
+	if(x.style.display === "none"){
+		x.style.display = "block";
+	}else{
+		x.style.display = "none";
+	}
+}

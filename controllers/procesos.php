@@ -2,7 +2,6 @@
     function AccesoLogin($user,$passw){
         $consultas = new Login();
         $data = $consultas->getDataUser($user);
-
         if($data)
         {
             foreach($data as $result){
@@ -140,6 +139,34 @@
         }else{
             echo '<div class="alert alert-primary"><i class="fas fa-user"></i> Bienvenido/a: '.$_SESSION["usuario"].'</div>';
         }
+    }
+    //Funcion para consutar datos de cualquier tabla
+    //Optimizar
+    function SelectData($query,$opcion=""){
+        $rows = null;
+        $consultas = new CRUD();
+        $data = $consultas->select($query);
+        if($opcion == "i"){
+            while ($result = $data->fetch()){
+                $rows[] = $result;
+            }
+            return $rows;
+        }else{
+            return $data;
+        }
+        
+        
+    }
+    function UpdateInsertDeleteData($query){
+        $objetConsulta = new CRUD();
+        $data = $objetConsulta->consultasUpdateInsertDelete($query);
+        return $data;
+    }
+
+    function NumReg($query){
+        $consultas = new CRUD();
+        $data = $consultas->row_registro($query);
+        return $data;
     }
 
 ?>

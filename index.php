@@ -2,6 +2,7 @@
 	session_start();
 	session_destroy();
 ?>
+<!--Despues de la practica y asignar la tarea--->
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -63,7 +64,7 @@
 								    		<i class="fas fa-user"></i>
 								    	</span>
 								  	</div>
-								  	<input type="text" name="user" class="form-control" placeholder="Usuario" autocomplete="off" required>
+								  	<input autofocus="true" type="text" name="user" class="form-control" placeholder="Usuario" autocomplete="off" required>
 								</div>
 								<div class="input-group mb-3">
 								 	<div class="input-group-prepend">

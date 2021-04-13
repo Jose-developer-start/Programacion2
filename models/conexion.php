@@ -2,8 +2,8 @@
 
     class ConexionDB{
         public function get_conexion(){
-            $user = "root";
-            $password = "";
+            $user = "jose";
+            $password = "jose12345";
             $host = "localhost";
             $bd = "store_xyz";
 

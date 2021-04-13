@@ -1,3 +1,4 @@
+
 <div class="card" style="background-color: #212121;color: #ff7043;">
     <h5 class="card-header">
     <i class="fas fa-store-alt"> </i> Sistema Gestión M.B.(SGMB)
@@ -22,9 +23,9 @@
         <div class="card-body">
         <div class="row" style="text-align: center;">
                 <div class="col">
-                    <a href="" class="btn btn-secondary inventario"> 
-                        <i class="fas fa-boxes fa-3x"></i><br>
-                        Inventario
+                    <a href="" class="btn btn-secondary procesos-v"> 
+                        <i class="fas fa-tools fa-3x"></i><br>
+                        Panel Control
                     </a>
                 </div>
                 <div class="col">
