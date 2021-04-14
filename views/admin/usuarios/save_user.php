@@ -16,7 +16,7 @@
     $valores = "'$user','$email','$clave','$tipo'";
     $query = "INSERT INTO $tabla ($campo) VALUES($valores)";
     
-    $insert = UpdateInsertDeleteData($query);
+    $insert = U_I_D($query);
 ?>
 <?php if ($insert == 1):?>
 <script>

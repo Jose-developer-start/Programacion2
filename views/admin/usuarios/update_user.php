@@ -16,7 +16,7 @@
 
         $query = "UPDATE $tabla SET $campos WHERE $condicional";
 
-        $update = UpdateInsertDeleteData($query);
+        $update = U_I_D($query);
     ?>
     <?php if ($update == 1):?>
     <script>
@@ -48,7 +48,7 @@
 
         $query = "UPDATE $tabla SET $campos WHERE $condicional";
 
-        $update = UpdateInsertDeleteData($query);
+        $update = U_I_D($query);
     ?>
     <?php if($update == 1):?>
         <script>

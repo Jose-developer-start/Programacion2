@@ -16,7 +16,7 @@
             $stm->execute();
             return $stm;
         }
-        public function consultasUpdateInsertDelete($query){
+        public function U_I_D($query){
             $modelo = new ConexionDB();
             $conexion = $modelo->get_conexion();
             $stm = $conexion->prepare($query);

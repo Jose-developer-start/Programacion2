@@ -25,7 +25,7 @@
       </li>
     </ul>
     <span class="navbar-text">
-      <a class="btn btn-danger" href="../../index.php" style="color:#ffffff;">Salir</a>
+      <a class="btn btn-danger" href="../../index.php" style="color:#ffffff;"> <i class="fa fa-sign-out fa-lg"></i> Salir</a>
     </span>
   </div>
 </nav>

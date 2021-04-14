@@ -157,9 +157,9 @@
         
         
     }
-    function UpdateInsertDeleteData($query){
+    function U_I_D($query){
         $objetConsulta = new CRUD();
-        $data = $objetConsulta->consultasUpdateInsertDelete($query);
+        $data = $objetConsulta->U_I_D($query);
         return $data;
     }
 

@@ -1,4 +1,4 @@
-<script src="../../public/js/js_funciones.js"></script>
+<script src="../../public/js/funciones-navbar.js"></script>
 <script src="../../public/js/funciones-usuario.js"></script>
 <?php 
     session_start();
@@ -53,7 +53,7 @@
 <?php
     $iduser = $_GET['id_user'];
     $query = "DELETE FROM usuarios WHERE id_usuario = '$iduser'";
-    $delete_user = UpdateInsertDeleteData($query);
+    $delete_user = U_I_D($query);
 ?>
     <?php if ($delete_user == 1):?>
      <script>
@@ -83,7 +83,7 @@
         $estado = 0;
     }
     $query = "UPDATE usuarios SET estado='$estado' WHERE id_usuario='$iduser'";
-    $update = UpdateInsertDeleteData($query);
+    $update = U_I_D($query);
 ?>
 <?php 
     ?>
