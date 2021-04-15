@@ -6,7 +6,7 @@ if (isset($_GET['num'])) {
     $pagina = $_GET['num'];
 }
 //Definir el numero de registross
-if (isset($_GET['num_reg']) || isset($_GET['num'])) {
+if (isset($_GET['n_reg']) || isset($_GET['num'])) {
     $registros = $_GET['num_reg'];
 } else {
     $registros = 3;
@@ -20,13 +20,16 @@ if (!$pagina) {
     $inicio = ($pagina - 1) * $registros;
 }
 $query = "SELECT * FROM categorias";
-$num_registro = NumReg($query);
 
-$queryCate = "SELECT * FROM categorias ORDER BY id_categorias LIMIT $inicio, $registros";
+if(isset($_GET['like'])){
+    $valor = $_GET['valor'];
+    $queryCate = "SELECT * FROM categorias WHERE categoria LIKE '%$valor%'";
+}else{
+    $queryCate = "SELECT * FROM categorias ORDER BY id_categorias LIMIT $inicio, $registros";
+}
 
 $DataCategorias = SelectData($queryCate, "i");
+$num_registro = NumReg($query);
 $paginas = ceil($num_registro / $registros);
-
-
 
 ?>
