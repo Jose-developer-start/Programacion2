@@ -6,7 +6,7 @@
 
     if(isset($_GET['insert_cate'])){
         $categoria = $_GET['categoria'];
-        $query = "INSERT INTO categorias (categoria,imagen_cate) VALUES('$categoria',NULL)";
+        $query = "INSERT INTO categorias (categoria,imagen_cate) VALUES('$categoria','hola.png')";
         $insertCate = U_I_D($query);
 
         if($insertCate == 1){
