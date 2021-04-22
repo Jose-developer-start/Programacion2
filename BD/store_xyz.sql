@@ -98,10 +98,7 @@ CREATE TABLE `producto` (
 CREATE TABLE `usuarios` (
   `id_usuario` int(11) NOT NULL,
   `usuario` varchar(50) NOT NULL,
-<<<<<<< HEAD
   `email` varchar(50) NOT NULL,
-=======
->>>>>>> 1292ef850969c6e71d9268efe3b8a2bdf0e0c1e4
   `passw` text DEFAULT NULL,
   `tipo` int(11) DEFAULT NULL,
   `estado` int(11) DEFAULT NULL,
@@ -112,13 +109,10 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-<<<<<<< HEAD
+
 INSERT INTO `usuarios` (`id_usuario`,`email`,`usuario`, `passw`, `tipo`, `estado`, `token`) VALUES
 (1, 'jose', 'josedeodanes99@gmail.com', '$2y$10$OaJiSlhoFQ7E1suwbpkgHe02vosndFcB8fBIAI0LCTZYfuDacBZ.u', 1, 1, NULL);
-=======
-INSERT INTO `usuarios` (`id_usuario`, `usuario`, `passw`, `tipo`, `estado`, `token`) VALUES
-(1, 'diana2', '$2y$10$OaJiSlhoFQ7E1suwbpkgHe02vosndFcB8fBIAI0LCTZYfuDacBZ.u', 1, 1, NULL);
->>>>>>> 1292ef850969c6e71d9268efe3b8a2bdf0e0c1e4
+
 
 --
 -- Índices para tablas volcadas
