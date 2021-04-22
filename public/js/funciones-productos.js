@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    //Funcion para cargar la vista de principal categorias
-    $("a.categorias").click(function(event){
-        $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+    //Funcion para cargar la vista de principal productos
+    $("a.productos").click(function(event){
+        $("#contenido-procesos").load("procesos_varios/productos/principal_productos.php");
         event.preventDefault();
     });
     /*Envia el numero de paginas*/
@@ -20,10 +20,10 @@ $(document).ready(function(){
         event.preventDefault();
     })
     /*Buscar categoria*/
-    $('#like-categoria').on('change', function(event){
+    $('#like-productos').on('change', function(event){
         var valor;
-        valor = $("#like-categoria").val();
-        $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php?like=1&valor="+valor);
+        valor = $("#like-productos").val();
+        $("#contenido-procesos").load("procesos_varios/productos/principal_productos.php?like=1&valor="+valor);
         event.preventDefault();
     });
     /*Cargar formulario para nueva categoria*/

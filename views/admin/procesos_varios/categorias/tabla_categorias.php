@@ -18,7 +18,7 @@
     <?php foreach($DataCategorias AS $result): ?>
         <tr>
             <td><?php echo $cont += 1; ?></td>
-            <td><?php echo $result['id_categorias']?></td>
+            <td><?php echo $result['id_categoria']?></td>
             <td><?php echo $result['categoria']?></td>
             <td><a href="" class="btn btn-success" id-categoria="<?php echo $result['id_categorias']?>">
                 <i class="fas fa-edit"></i>
