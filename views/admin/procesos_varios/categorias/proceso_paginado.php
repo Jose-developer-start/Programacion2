@@ -25,7 +25,11 @@ if(isset($_GET['like'])){
     $valor = $_GET['valor'];
     $queryCate = "SELECT * FROM categorias WHERE categoria LIKE '%$valor%'";
 }else{
+<<<<<<< HEAD
     $queryCate = "SELECT * FROM categorias ORDER BY id_categoria LIMIT $inicio, $registros";
+=======
+    $queryCate = "SELECT * FROM categorias ORDER BY id_categorias LIMIT $inicio, $registros";
+>>>>>>> 36d9cba681ab4110c3a20c63ca4be804da8c4483
 }
 
 $DataCategorias = SelectData($queryCate, "i");

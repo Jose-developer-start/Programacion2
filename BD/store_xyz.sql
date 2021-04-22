@@ -1,13 +1,21 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
+<<<<<<< HEAD
 -- Servidor: localhost
 -- Tiempo de generación: 22-04-2021 a las 00:07:40
 -- Versión del servidor: 10.3.27-MariaDB-0+deb10u1
 -- Versión de PHP: 7.3.27-1~deb10u1
+=======
+-- Host: localhost
+-- Generation Time: Apr 15, 2021 at 08:06 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
+>>>>>>> 36d9cba681ab4110c3a20c63ca4be804da8c4483
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +26,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `store_xyz`
+-- Database: `store_xyz`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `categorias`
+-- Table structure for table `categorias`
 --
 
 CREATE TABLE `categorias` (
@@ -34,9 +42,10 @@ CREATE TABLE `categorias` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `categorias`
+-- Dumping data for table `categorias`
 --
 
+<<<<<<< HEAD
 INSERT INTO `categorias` (`id_categoria`, `categoria`, `imagen_categoria`) VALUES
 (1, 'pez', ''),
 (2, 'Marisco', ''),
@@ -95,11 +104,21 @@ CREATE TABLE `producto` (
 INSERT INTO `producto` (`id_producto`, `nombre_productos`, `descripcion`, `precio_compra`, `precio_venta`, `unidad_medida`, `imagen`) VALUES
 (1, 'Leche', 'Leche de vaca', '2.00', '3.00', '2 kilos', 'leche.png'),
 (2, 'juego', 'juego del valle', '0.25', '0.50', 'libros', 'jugo.png');
+=======
+INSERT INTO `categorias` (`id_categorias`, `categoria`, `imagen_cate`) VALUES
+(1, 'Res', 'res.png'),
+(2, 'Res', 'imagen_res.png\r\n'),
+(3, 'Pollo', 'imagen_pollo.png\r\n'),
+(4, 'Zapato', 'imagen_zapato.png'),
+(5, 'Leche', 'leche-png'),
+(6, 'Galletas', 'galletas.png'),
+(7, 'Electrodomesticos', 'hola.png');
+>>>>>>> 36d9cba681ab4110c3a20c63ca4be804da8c4483
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuarios`
+-- Table structure for table `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -113,18 +132,23 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `usuarios`
+-- Dumping data for table `usuarios`
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `usuario`, `email`, `passw`, `tipo`, `estado`, `token`) VALUES
+<<<<<<< HEAD
 (1, 'jose', '', '$2y$10$emlcoj2jbw5pRIe7xWBhBO7Mh64JtjS6hl0bOYN1uqD4LUuYRWuG2', 1, 1, NULL);
+=======
+(1, 'jose', 'josedeodanes99@gmail.com', '$2y$10$5iD58PjfJp2uIZVmnfgnaOETK1Y.Sv5ZKo9JXDX.brCwPnPqCMwWi', 1, 1, ''),
+(3, 'dfg', 'josedeodanes99@gmail.com', '$2y$10$nNoGseo.ndurgiK8PgS95eCSZ86kvlnqUy8Gfk4XtS8luc/vc8fse', 1, NULL, NULL);
+>>>>>>> 36d9cba681ab4110c3a20c63ca4be804da8c4483
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `categorias`
+-- Indexes for table `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`id_categoria`);
@@ -151,19 +175,20 @@ ALTER TABLE `producto`
   ADD PRIMARY KEY (`id_producto`);
 
 --
--- Indices de la tabla `usuarios`
+-- Indexes for table `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `categorias`
+-- AUTO_INCREMENT for table `categorias`
 --
 ALTER TABLE `categorias`
+<<<<<<< HEAD
   MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
@@ -183,11 +208,15 @@ ALTER TABLE `limite_productos`
 --
 ALTER TABLE `producto`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+=======
+  MODIFY `id_categorias` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> 36d9cba681ab4110c3a20c63ca4be804da8c4483
 
 --
--- AUTO_INCREMENT de la tabla `usuarios`
+-- AUTO_INCREMENT for table `usuarios`
 --
 ALTER TABLE `usuarios`
+<<<<<<< HEAD
   MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -206,6 +235,9 @@ ALTER TABLE `inventarios`
 --
 ALTER TABLE `limite_productos`
   ADD CONSTRAINT `producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON UPDATE CASCADE;
+=======
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> 36d9cba681ab4110c3a20c63ca4be804da8c4483
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
