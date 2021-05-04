@@ -1,7 +1,7 @@
 <div class="d.none d.sm d.md-block">
     <div class="row">
         <div class="col-md-4">
-            <a href="" class="btn btn-dark inventario">
+            <a href="" class="btn btn-dark stock">
                 Inventario <br>
                 <i class="fas fa-cubes fa-2x"></i>
             </a>

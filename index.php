@@ -36,7 +36,6 @@
 						</div>
 					</div>
 				</div>
-				<?php //echo password_hash('jose',PASSWORD_DEFAULT) ?>
 				<div class="col-md-6">
 					<div class="contenlogin">
 						<div class="login">
