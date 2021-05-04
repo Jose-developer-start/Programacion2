@@ -169,4 +169,16 @@
         return $data;
     }
 
+    //Funcion para crear la ruta de la imagen
+    function CargarIMG($tmp_dir,$imgSize,$newName,$path){
+        if(!is_dir($path)){
+            mkdir($path,0777,true);
+        }
+        if(is_uploaded_file($tmp_dir)){
+            copy($tmp_dir,$path.$newName);
+            return $subido = true;
+        }else{
+            return $subido = false;
+        }
+    }
 ?>
