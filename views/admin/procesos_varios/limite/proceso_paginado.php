@@ -29,7 +29,7 @@ if(isset($_GET['like'])){
     $queryLimite = "SELECT producto.nombre_productos,categorias.categoria,limite_productos.id_limite,limite_productos.limite FROM `inventarios` INNER JOIN producto ON producto.id_producto=inventarios.id_producto INNER JOIN categorias ON categorias.id_categoria = inventarios.id_categoria INNER JOIN limite_productos ON limite_productos.id_producto=inventarios.id_producto LIMIT $inicio, $registros";
 }
 
-$DataCategorias = SelectData($queryLimite, "i");
+$DataLimite = SelectData($queryLimite, "i");
 $num_registro = NumReg($query);
 $paginas = ceil($num_registro / $registros);
 

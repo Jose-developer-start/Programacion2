@@ -1,5 +1,5 @@
 <style>
-    td{
+    td,th{
         text-align: center;
         vertical-align: middle;
     }
@@ -20,11 +20,11 @@
             <td><?php echo $cont += 1; ?></td>
             <td><?php echo $result['id_categoria']?></td>
             <td><?php echo $result['categoria']?></td>
-            <td><a href="" class="btn btn-success" id-categoria="<?php echo $result['id_categorias']?>">
+            <td><a href="" class="btn btn-success edit-categoria" id-categoria="<?php echo $result['id_categoria']?>">
                 <i class="fas fa-edit"></i>
             </a></td>
             <td>
-            <a href="" class="btn btn-danger" id-categoria="<?php echo $result['id_categorias']?>">
+            <a href="" class="btn btn-danger del-categoria" id-categoria="<?php echo $result['id_categoria']?>">
                 <i class="fas fa-trash-alt"></i>
             </a>
             </td>

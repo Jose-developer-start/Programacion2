@@ -34,19 +34,19 @@ $query = "SELECT * FROM producto"; //Total de registro para paginado
 
 if (isset($_GET['like'])) {
     $valor = $_GET['valor'];
-    $queryCate = "SELECT * FROM producto WHERE nombre_productos LIKE '%$valor%'";
+    $queryProduct = "SELECT * FROM producto WHERE nombre_productos LIKE '%$valor%'";
 } else {
-    $queryCate = "SELECT * FROM producto ORDER BY id_producto LIMIT $inicio, $registros";
+    $queryProduct = "SELECT * FROM producto ORDER BY id_producto LIMIT $inicio, $registros";
 }
 
-$DataCategorias = SelectData($queryCate, "i");
+$DataProduct = SelectData($queryProduct, "i");
 $num_registro = NumReg($query);
 $paginas = ceil($num_registro / $registros);
 
 
 ?>
     <?php include "select_y_buscador.php" ?>
-<?php if ($DataCategorias) : ?>
+<?php if ($DataProduct) : ?>
     
     <?php include "tabla_productos.php"?>
     <?php include "boton_next_back.php" ?>

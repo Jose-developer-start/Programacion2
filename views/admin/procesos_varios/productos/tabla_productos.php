@@ -20,7 +20,7 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($DataCategorias as $result) : ?>
+        <?php foreach ($DataProduct as $result) : ?>
             <tr>
                 <td><?php echo $cont += 1; ?></td>
                 <td><?php echo $result['id_producto'] ?></td>

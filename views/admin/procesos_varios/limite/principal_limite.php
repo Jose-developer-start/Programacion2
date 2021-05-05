@@ -13,7 +13,7 @@ include_once "../../../../controllers/procesos.php";
 include "./proceso_paginado.php";
 ?>
 <?php include "./select_y_buscador.php"; ?>
-<?php if ($DataCategorias) : ?>
+<?php if ($DataLimite) : ?>
     <?php include "./tabla_limite.php"; ?>
     <?php include "./boton_next_back.php"; ?>
 <?php else : ?>

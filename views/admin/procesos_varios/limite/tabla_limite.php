@@ -16,7 +16,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($DataCategorias AS $result): ?>
+    <?php foreach($DataLimite AS $result): ?>
         <tr>
             <td><?php echo $cont += 1; ?></td>
             <td><?php echo $result['nombre_productos']?></td>

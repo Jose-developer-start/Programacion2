@@ -25,8 +25,76 @@
             
             </script>';
         }
-    
-
     }
+    //Update Categoria
+    if(isset($_POST['categoria'])){
+        $categoria = $_POST['categoria'];
+        $id_cate = $_POST['id_categoria'];
+        $imgFile = $_FILES['imagen']['name'];
+        $imgSize = $_FILES['imagen']['size'];
+        $tmp_file = $_FILES['imagen']['tmp_name'];
 
+        $carpeta = "categoria/".$categoria."/";
+        $path = "../../../../public/img/".$carpeta; //Ruta completa de 
+        $imgExpot = strtolower(pathinfo($imgFile,PATHINFO_EXTENSION)); //Obtenemos la extension del file
+        $newName = $categoria.".".$imgExpot;
+        $cargar_img = CargarIMG($tmp_file,$imgSize,$newName,$path);
+        switch($cargar_img){
+            case 0:
+                echo '<script>
+                    $(document).ready(function(event){
+                        alertify.alert("Cargar Imagen","Error datos e Imagen no cargados...");
+                        $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+                        
+                    })
+                </script>';
+            break;
+            case 1:
+                $img = $carpeta.$newName;
+                $tabla = "categorias";
+                $campos = "`categoria`, `imagen_categoria`";
+                $valores = "categoria='$categoria',imagen_categoria='$img'";
+                $sql_insert_product = "UPDATE $tabla SET $valores WHERE id_categoria=$id_cate";
+                $insert_product = U_I_D($sql_insert_product);
+    
+                if($insert_product){
+                    echo '<script>
+                        $(document).ready(function(event){
+                            alertify.success("Categoria Actualizado...");
+                            $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+                        })
+                    </script>';
+                }else{
+                    echo '<script>
+                        $(document).ready(function(event){
+                            alertify.success("Categoria no registrado...");
+                            $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+                        })
+                    </script>';
+                }
+            break;
+        }
+    }
+    if(isset($_GET['del'])){
+        $id_categoria = $_GET['id-cate'];
+        $query = "DELETE FROM `categorias` WHERE `id_categoria`=$id_categoria";
+        $result = U_I_D($query);
+
+        if($result == 1){
+            echo '<script>
+                $(document).ready(function(event){
+                    alertify.alert("Registro Limite","Limite Eliminado!");
+                    $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+                })
+            </script>';
+        }else{
+            echo '<script>
+                $(document).ready(function(event){
+                    alertify.alert("Registro Limite","Error al Eliminar Limite");
+                    $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+                    
+                })
+            </script>';
+        }
+    }
 ?>
