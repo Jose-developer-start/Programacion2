@@ -19,7 +19,7 @@ $(document).ready(function () {
     );
     event.preventDefault();
   });
-  /*Aumentar el numero de registro tabla categoria*/
+  /*Aumentar el numero de registro tabla limite*/
   $("#select-reg").on("change", function (event) {
     var valor;
     valor = $("#select-reg option:selected").val();
@@ -28,7 +28,7 @@ $(document).ready(function () {
     );
     event.preventDefault();
   });
-  /*Buscar categoria*/
+  /*Buscar limite*/
   $("#like-limite-prod").on("change", function (event) {
     var valor;
     valor = $("#like-limite-prod").val();
@@ -37,7 +37,7 @@ $(document).ready(function () {
     );
     event.preventDefault();
   });
-  /*Cargar formulario para nueva categoria*/
+  /*Cargar formulario para nueva limite*/
   $("#new-limite-prod").click(function (event) {
     $("#contenido-procesos").load("procesos_varios/limite/form_insert.php");
     event.preventDefault();

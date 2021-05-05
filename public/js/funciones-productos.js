@@ -12,21 +12,21 @@ $(document).ready(function(){
         $("#contenido-procesos").load("procesos_varios/productos/principal_productos.php?num=" + num +"&num_reg="+reg);
         event.preventDefault();
     })
-    /*Aumentar el numero de registro tabla categoria*/
+    /*Aumentar el numero de registro tabla producto*/
     $('#select-reg').on('change', function(event){
         var valor;
         valor = $("#select-reg option:selected").val();
         $("#contenido-procesos").load("procesos_varios/productos/principal_productos.php?n_reg=1&num_reg="+valor);
         event.preventDefault();
     })
-    /*Buscar categoria*/
+    /*Buscar producto*/
     $('#like-productos').on('change', function(event){
         var valor;
         valor = $("#like-productos").val();
         $("#contenido-procesos").load("procesos_varios/productos/principal_productos.php?like=1&valor="+valor);
         event.preventDefault();
     });
-    /*Cargar formulario para nueva categoria*/
+    /*Cargar formulario para nuevo producto*/
     $("#new-product").click(function(event){
         $("#contenido-procesos").load("procesos_varios/productos/form_insert.php");
         event.preventDefault();

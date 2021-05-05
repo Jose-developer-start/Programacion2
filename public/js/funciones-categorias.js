@@ -41,4 +41,40 @@ $(document).ready(function(){
             event.preventDefault();
         }
     })
+    //Editar categoria
+    $("a.edit-categoria").click(function(event){
+        var id_cate;
+        id_cate = $(this).attr("id-categoria");
+        $("#contenido-procesos").load("procesos_varios/categorias/edit_categoria.php?id-cate="+id_cate);
+        event.preventDefault();
+    });
+    //Update categoria
+    $("#update-categoria").on("submit",(event)=>{
+        event.preventDefault();
+        //Obj para obtener el formulario
+        var formData = new FormData(document.getElementById('update-categoria'));
+        $.ajax({
+            url: "procesos_varios/categorias/IUD_categoria.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done((res)=>{
+            $("#contenido-procesos").html(res);
+        })
+    })
+    /*Eliminar una categoria*/
+  $("a.del-categoria").click(function (event) {
+    if (confirm("Seguro/a de eliminarla categoria?")) {
+      var idCategoria = $(this).attr("id-categoria");
+      $("#contenido-procesos").load("procesos_varios/categorias/IUD_categoria.php?del=1&id-cate=" + idCategoria);
+      event.preventDefault();
+    } else {
+      alertify.alert("Eliminar Limite", "Proceso cancelado..");
+      //alert("Proceso cancelado..");
+      event.preventDefault();
+    }
+  });
 });
