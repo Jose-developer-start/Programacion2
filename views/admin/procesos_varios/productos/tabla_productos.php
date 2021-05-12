@@ -30,11 +30,11 @@
                 <td><?php echo $result['precio_venta'] ?></td>
                 <td><?php echo $result['unidad_medida'] ?></td>
                 <td><img src="../../public/img/<?php echo $result['imagen']?>" width="70px" alt=""></td></td>
-                <td><a href="" class="btn btn-success" id-categoria="<?php echo $result['id_categorias'] ?>">
+                <td><a href="" class="btn btn-success edit_producto" id-producto="<?php echo $result['id_producto'] ?>">
                         <i class="fas fa-edit"></i>
                     </a></td>
                 <td>
-                    <a href="" class="btn btn-danger" id-categoria="<?php echo $result['id_categorias'] ?>">
+                    <a href="" class="btn btn-danger del_producto" id-producto="<?php echo $result['id_producto'] ?>">
                         <i class="fas fa-trash-alt"></i>
                     </a>
                 </td>

@@ -23,16 +23,20 @@ $data = SelectData($query, 'i');
                     </div>
                     <input type="hidden" name="id_categoria" value="<?php echo $result['id_categoria']; ?>" />
                     <input type="text" name="categoria" class="form-control" required="on" value="<?php echo $result['categoria']; ?>" />
-
                 </div>
+                <?php if(strlen($result['imagen_categoria'])):?>
+                <label for="">Imagen Actual</label>
+                    <div class="my-4">
+                    <img src="../../public/img/<?php echo $result['imagen_categoria']; ?>" alt="" width="100px">
+                    </div>
+                <?php endif ?>
             </div>
             <div class="col-md-6">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">Imagen</span>
                     </div>
-                    <input type="file" name="imagen" id="imagen" class="form-control" placeholder="Limite Producto" required="on" />
-
+                    <input type="file" name="imagen" accept="image/png" id="imagen" class="form-control" placeholder="Limite Producto" />
                 </div>
                 <div>
                     <img src="" width="200px" id="imagenmuestra" alt="">
