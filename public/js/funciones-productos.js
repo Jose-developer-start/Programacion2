@@ -49,4 +49,8 @@ $(document).ready(function(){
             $("#contenido-procesos").html(res);
         })
     })
+    $("a.edit_producto").click(function(event){
+        $("#contenido-procesos").load("procesos_varios/productos/form_insert.php");
+        event.preventDefault();
+    });
 });

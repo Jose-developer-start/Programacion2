@@ -1,8 +1,9 @@
 $(document).ready(function(){
     //Funcion para cargar la vista de principal categorias
     $("a.categorias").click(function(event){
-        $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
         event.preventDefault();
+        $("#contenido-procesos").load("procesos_varios/categorias/principal_categorias.php");
+        
     });
     /*Envia el numero de paginas*/
     $("a.pagina").click(function(event){
@@ -41,7 +42,7 @@ $(document).ready(function(){
             event.preventDefault();
         }
     })
-    //Editar categoria
+    //Cargar categoria
     $("a.edit-categoria").click(function(event){
         var id_cate;
         id_cate = $(this).attr("id-categoria");
@@ -69,10 +70,10 @@ $(document).ready(function(){
   $("a.del-categoria").click(function (event) {
     if (confirm("Seguro/a de eliminarla categoria?")) {
       var idCategoria = $(this).attr("id-categoria");
-      $("#contenido-procesos").load("procesos_varios/categorias/IUD_categoria.php?del=1&id-cate=" + idCategoria);
+      $("#contenido-procesos").load("procesos_varios/categorias/delete_cate.php?delete_cate=1&id-cate=" + idCategoria);
       event.preventDefault();
     } else {
-      alertify.alert("Eliminar Limite", "Proceso cancelado..");
+      alertify.alert("Eliminar Categoria", "Proceso cancelado..");
       //alert("Proceso cancelado..");
       event.preventDefault();
     }

@@ -19,3 +19,7 @@ function readURL(input){
 $('#imagen').change(function(){
 	readURL(this);
 })
+//Imagen cate
+$('#imagen-cate').change(function(){
+	readURL(this);
+})
