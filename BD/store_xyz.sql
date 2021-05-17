@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-05-2021 a las 05:58:51
+-- Tiempo de generación: 17-05-2021 a las 19:23:14
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -38,16 +38,11 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `categoria`, `imagen_categoria`) VALUES
-(1, 'pez', ''),
-(2, 'Marisco', ''),
-(3, 'cerdo', ''),
-(4, 'carne', ''),
-(5, 'embutido', ''),
-(6, 'lacteos', ''),
+(6, 'Lacteos', 'categoria/Lacteos/Lacteos.png'),
 (7, 'electronicos', ''),
 (8, 'Plásticos', ''),
 (9, 'AudioVisual', ''),
-(14, 'Salsitas', '');
+(18, 'Carne de res', 'categoria/Carne de res/Carne de res.png');
 
 -- --------------------------------------------------------
 
@@ -67,12 +62,11 @@ CREATE TABLE `inventarios` (
 --
 
 INSERT INTO `inventarios` (`id_inventario`, `id_producto`, `id_categoria`, `stock`) VALUES
-(16, 1, 4, 20),
-(18, 3, 6, 34),
-(19, 4, 8, 12),
-(23, 2, 4, 20),
-(24, 5, 9, 12),
-(25, 6, 9, 20);
+(18, 3, 6, 5),
+(19, 4, 8, 5),
+(24, 5, 9, 1),
+(26, 6, 18, 3),
+(28, 7, 6, 56);
 
 -- --------------------------------------------------------
 
@@ -92,10 +86,8 @@ CREATE TABLE `limite_productos` (
 
 INSERT INTO `limite_productos` (`id_limite`, `id_producto`, `limite`) VALUES
 (8, 2, 22),
-(9, 1, 77),
-(11, 3, 55),
-(12, 4, 55),
-(13, 6, 10);
+(14, 4, 200),
+(16, 6, 50);
 
 -- --------------------------------------------------------
 
@@ -118,12 +110,12 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_productos`, `descripcion`, `precio_compra`, `precio_venta`, `unidad_medida`, `imagen`) VALUES
-(1, 'carne de pollo', 'sdfdsf', '12.00', '12.00', '12', 'productos/carne/carne de pollo.jpg'),
 (2, 'Carne de rez', 'carne de vaca', '50.00', '1.50', 'libras', 'productos/carne/Carne de rez.jpg'),
 (3, 'Leche ', 'leche de vaca', '12.00', '12.00', '12', 'productos/lacteos/Leche .jpg'),
 (4, 'Botellas', 'Botellas de gaseosa', '12.00', '1.25', 'Litros', 'productos/Plásticos/Botellas.png'),
 (5, 'Samsung L3', 'HHJHHH', '12.00', '12.00', '12', 'productos/AudioVisual/Samsung L3.png'),
-(6, 'Camara', 'Camara go pro', '5000.00', '400.00', 'Libras', 'productos/AudioVisual/Camara.png');
+(6, 'gffhgf', 'fghfghfg', '12.00', '12.00', '12', 'productos/Carne/gffhgf.png'),
+(7, 'hola', 'Hola desde php', '45.00', '12.00', 'libras', 'productos/Lacteos/hola.png');
 
 -- --------------------------------------------------------
 
@@ -193,19 +185,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT de la tabla `inventarios`
 --
 ALTER TABLE `inventarios`
-  MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `limite_productos`
 --
 ALTER TABLE `limite_productos`
-  MODIFY `id_limite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_limite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -221,8 +213,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `inventarios`
 --
 ALTER TABLE `inventarios`
-  ADD CONSTRAINT `categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `product` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `limite_productos`

@@ -182,12 +182,14 @@
         }
     }
     //Funcion para eliminar archivo y carpeta
-    function rmDir_file($carpeta,$file)
+    function rmDir_file($carpeta = "",$file)
     {
         if(unlink($file)){
             if (is_dir($carpeta)){
                 rmdir($carpeta);
                 return true;
+            }else{
+                return false;
             }
         }else{
             return false;
