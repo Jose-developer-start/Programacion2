@@ -49,8 +49,22 @@ $(document).ready(function(){
             $("#contenido-procesos").html(res);
         })
     })
+    //Editar productos
     $("a.edit_producto").click(function(event){
-        $("#contenido-procesos").load("procesos_varios/productos/form_insert.php");
+        var idProducto = $(this).attr("id-producto");
+        $("#contenido-procesos").load("procesos_varios/productos/edit_product.php?id_product=" + idProducto);
         event.preventDefault();
     });
+    //Eliminar producto
+    $("a.del_producto").click(function (event) {
+        if (confirm("Seguro/a de eliminarla Producto?")) {
+          var idProducto = $(this).attr("id-producto");
+          $("#contenido-procesos").load("procesos_varios/productos/delete_prod.php?delete_product=1&id_product=" + idProducto);
+          event.preventDefault();
+        } else {
+          alertify.alert("Eliminar Producto", "Proceso cancelado..");
+          //alert("Proceso cancelado..");
+          event.preventDefault();
+        }
+      });
 });
