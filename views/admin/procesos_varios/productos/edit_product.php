@@ -75,7 +75,7 @@ $dataProduct = SelectData($query, "i");
         </div>
     </div>
     <div class="pt-3">
-        <button class="btn btn-primary text-white" id="save-producto"><i class="fas fa-save"></i> Guardar</button>
+        <button class="btn btn-primary text-white" id="save-producto"><i class="fas fa-save"></i>Actualizar</button>
         <a class="btn btn-danger text-white productos"><i class="fas fa-ban"></i> Cancelar</a>
     </div>
 </form>

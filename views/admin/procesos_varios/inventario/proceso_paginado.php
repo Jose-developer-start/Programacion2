@@ -23,13 +23,13 @@ $query = "SELECT * FROM inventarios";
 
 if(isset($_GET['like'])){
     $valor = $_GET['valor'];
-    $queryLimite = "SELECT producto.nombre_productos,producto.imagen,inventarios.id_inventario,inventarios.stock,categorias.categoria FROM `inventarios` INNER JOIN producto ON producto.id_producto=inventarios.id_producto INNER JOIN categorias ON categorias.id_categoria = inventarios.id_categoria WHERE producto.nombre_productos LIKE '%$valor%'";
+    $queryLimite = "SELECT producto.nombre_productos,producto.imagen,inventarios.id_inventario,inventarios.stock,inventarios.estado,categorias.categoria FROM `inventarios` INNER JOIN producto ON producto.id_producto=inventarios.id_producto INNER JOIN categorias ON categorias.id_categoria = inventarios.id_categoria WHERE producto.nombre_productos LIKE '%$valor%'";
 }else{
 
-    $queryLimite = "SELECT producto.nombre_productos,producto.imagen,inventarios.id_inventario,inventarios.stock,categorias.categoria FROM `inventarios` INNER JOIN producto ON producto.id_producto=inventarios.id_producto INNER JOIN categorias ON categorias.id_categoria = inventarios.id_categoria LIMIT $inicio, $registros";
+    $queryLimite = "SELECT producto.nombre_productos,producto.imagen,inventarios.id_inventario,inventarios.stock,inventarios.estado,categorias.categoria FROM `inventarios` INNER JOIN producto ON producto.id_producto=inventarios.id_producto INNER JOIN categorias ON categorias.id_categoria = inventarios.id_categoria LIMIT $inicio, $registros";
 }
 
-$DataCategorias = SelectData($queryLimite, "i");
+$DataStock = SelectData($queryLimite, "i");
 $num_registro = NumReg($query);
 $paginas = ceil($num_registro / $registros);
 

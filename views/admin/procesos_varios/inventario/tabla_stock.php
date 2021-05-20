@@ -18,7 +18,7 @@
         </tr>
     </thead>
     <tbody>
-    <?php foreach($DataCategorias AS $result): ?>
+    <?php foreach($DataStock AS $result): ?>
         <tr>
             <td><?php echo $cont += 1; ?></td>
             <td><?php echo $result['id_inventario']?></td>
@@ -30,9 +30,15 @@
                 <i class="fas fa-edit"></i>
             </a></td>
             <td>
-            <a href="" class="btn btn-danger delete-stock" id-stock="<?php echo $result['id_inventario']?>">
-                <i class="fas fa-trash-alt"></i>
-            </a>
+            <?php if($result['estado'] == 0): ?>
+                <a href="" class="btn btn-danger delete-stock" estado="1" id-stock="<?php echo $result['id_inventario']?>">
+                    <i class="fas fa-handshake-slash"></i>
+                </a>
+            <?php else: ?>
+                <a href="" class="btn btn-info delete-stock" estado="0" id-stock="<?php echo $result['id_inventario']?>">
+                    <i class="fas fa-donate"></i>
+                </a>
+            <?php endif; ?>
             </td>
         </tr>
         <?php endforeach ?>
