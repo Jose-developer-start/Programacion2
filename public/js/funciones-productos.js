@@ -55,6 +55,24 @@ $(document).ready(function(){
         $("#contenido-procesos").load("procesos_varios/productos/edit_product.php?id_product=" + idProducto);
         event.preventDefault();
     });
+    //Obtener los datos del formulario de editar
+    $("#edit-product").on('submit',function(event){
+        event.preventDefault();
+
+        var formData = new FormData(document.getElementById('edit-product'));
+        formData.append("dato","valor");
+        $.ajax({
+            url: "procesos_varios/productos/update_product.php",
+            type: "post",
+            dataType: "html",
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false
+        }).done(function(res){
+            $("#contenido-procesos").html(res);
+        })
+    })
     //Eliminar producto
     $("a.del_producto").click(function (event) {
         if (confirm("Seguro/a de eliminarla Producto?")) {

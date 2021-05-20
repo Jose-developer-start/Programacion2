@@ -65,12 +65,13 @@ $(document).ready(function () {
   
     /*Eliminar un limite de un producto*/
     $("a.delete-stock").click(function (event) {
-      if (confirm("Seguro/a de eliminar el Limite Producto?")) {
-        var idLimite = $(this).attr("id-limite");
-        $("#contenido-procesos").load("procesos_varios/limite/IUD_limite.php?option=3&id-limite=" + idLimite);
+      if (confirm("Seguro/a desactivar del inventario?")) {
+        var id_inventario = $(this).attr("id-stock");
+        var estado = $(this).attr("estado");
+        $("#contenido-procesos").load("procesos_varios/inventario/mod_estado.php?estado="+estado+"&id-stock=" + id_inventario);
         event.preventDefault();
       } else {
-        alertify.alert("Eliminar Limite", "Proceso cancelado..");
+        alertify.alert("Acción", "Cancelado..");
         //alert("Proceso cancelado..");
         event.preventDefault();
       }
