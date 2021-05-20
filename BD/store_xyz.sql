@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-05-2021 a las 19:23:14
+-- Tiempo de generación: 20-05-2021 a las 05:57:48
 -- Versión del servidor: 10.4.17-MariaDB
 -- Versión de PHP: 7.3.27
 
@@ -54,19 +54,20 @@ CREATE TABLE `inventarios` (
   `id_inventario` int(11) NOT NULL,
   `id_producto` int(11) DEFAULT NULL,
   `id_categoria` int(11) DEFAULT NULL,
-  `stock` float DEFAULT NULL
+  `stock` float DEFAULT NULL,
+  `estado` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `inventarios`
 --
 
-INSERT INTO `inventarios` (`id_inventario`, `id_producto`, `id_categoria`, `stock`) VALUES
-(18, 3, 6, 5),
-(19, 4, 8, 5),
-(24, 5, 9, 1),
-(26, 6, 18, 3),
-(28, 7, 6, 56);
+INSERT INTO `inventarios` (`id_inventario`, `id_producto`, `id_categoria`, `stock`, `estado`) VALUES
+(18, 3, 6, 5, 1),
+(19, 4, 8, 5, 0),
+(24, 5, 9, 40, 0),
+(26, 6, 18, 3, 0),
+(30, 8, 6, 12, 1);
 
 -- --------------------------------------------------------
 
@@ -87,7 +88,8 @@ CREATE TABLE `limite_productos` (
 INSERT INTO `limite_productos` (`id_limite`, `id_producto`, `limite`) VALUES
 (8, 2, 22),
 (14, 4, 200),
-(16, 6, 50);
+(16, 6, 50),
+(17, 3, 100);
 
 -- --------------------------------------------------------
 
@@ -110,12 +112,12 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id_producto`, `nombre_productos`, `descripcion`, `precio_compra`, `precio_venta`, `unidad_medida`, `imagen`) VALUES
-(2, 'Carne de rez', 'carne de vaca', '50.00', '1.50', 'libras', 'productos/carne/Carne de rez.jpg'),
+(2, 'Carne de rez y vaca', 'carne de vaca', '100.00', '1.50', 'libras', 'productos/carne/Carne de rez y vaca.png'),
 (3, 'Leche ', 'leche de vaca', '12.00', '12.00', '12', 'productos/lacteos/Leche .jpg'),
 (4, 'Botellas', 'Botellas de gaseosa', '12.00', '1.25', 'Litros', 'productos/Plásticos/Botellas.png'),
 (5, 'Samsung L3', 'HHJHHH', '12.00', '12.00', '12', 'productos/AudioVisual/Samsung L3.png'),
 (6, 'gffhgf', 'fghfghfg', '12.00', '12.00', '12', 'productos/Carne/gffhgf.png'),
-(7, 'hola', 'Hola desde php', '45.00', '12.00', 'libras', 'productos/Lacteos/hola.png');
+(8, 'Queso', 'queso fresco', '45.00', '1.50', 'libras', 'productos/Lacteos/Queso.png');
 
 -- --------------------------------------------------------
 
@@ -191,13 +193,13 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `inventarios`
 --
 ALTER TABLE `inventarios`
-  MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id_inventario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT de la tabla `limite_productos`
 --
 ALTER TABLE `limite_productos`
-  MODIFY `id_limite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_limite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -220,7 +222,7 @@ ALTER TABLE `inventarios`
 -- Filtros para la tabla `limite_productos`
 --
 ALTER TABLE `limite_productos`
-  ADD CONSTRAINT `producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `producto` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
